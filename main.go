@@ -7,7 +7,7 @@ import (
 
 func main() {
 start:
-	arg1, arg2 := "node", "./web-test/index.js" // TODO : accept as cmd args.
+	arg1, arg2 := "node", "../web-test/index.js" // TODO : accept as cmd args.
 	cmd := exec.Command(arg1, arg2)
 	err := cmd.Start()
 	if err != nil {

@@ -1,13 +1,17 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"os/exec"
+	"strings"
 )
 
 func main() {
 start:
-	arg1, arg2 := "node", "../web-test/index.js" // TODO : accept as cmd args.
+	flag.Parse()
+	//arg1, arg2 := "node", "../web-test/index.js" // now accept as cmd args.
+	arg1, arg2 := strings.Join(flag.Args()[:1], " "), strings.Join(flag.Args()[1:], " ")
 	cmd := exec.Command(arg1, arg2)
 	err := cmd.Start()
 	if err != nil {
